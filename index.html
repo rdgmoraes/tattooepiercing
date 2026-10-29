@@ -117,8 +117,16 @@ dialog::backdrop{background:#000}
 }
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.rv{opacity:1;transform:none}}
 </style>
+<!-- Google Tag Manager -->
+<script async src="https://www.googletagmanager.com/gtm.js?id=GTM-W94R68GN"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+</script>
 </head>
 <body>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W94R68GN" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <header><div class="wrap">
  <a class="brand" href="#top" id="brandTop"></a>
  <nav aria-label="Principal">
@@ -226,6 +234,7 @@ const CONFIG={
  endereco:'Edf Milano — R. Nunes Machado, 472, Sl 1803 — Centro, Curitiba — PR, 80250-000',
  mapa:'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent('R. Nunes Machado, 472, Centro, Curitiba - PR, 80250-000'),
  telefone:'(41) 99976-9606',
+ googleTagId:'', /* ex.: 'G-XXXXXXXXXX' (Google Analytics 4) ou 'GTM-XXXXXXX' (Tag Manager). Só funciona com a página hospedada fora do Artifact */
  google:{nota:'5,0',qtd:'762 avaliações',link:'https://www.google.com/search?q=rodrigo+moraes+tattoo+e+piercing',
   /* conferir nota e quantidade no Google antes de publicar */
   comentarios:[{"texto": "E o que seria de nós sem o body piercer? Saiba que você foi incrível, te procurei para retirar os meus piercings no pré operatório e agora na colocação pós operatório, muito atencioso e gentil, com todo o cuidado, toda a delicadeza e paciência. Muito obrigada"}, {"texto": "Fiz meu segundo furo na orelha e amei a experiência! O atendimento foi super atencioso e cuidadoso do começo ao fim, O Rodrigo é super atencioso e explica certinho os cuidados depois do procedimento. O furo ficou perfeito e bem alinhado. O ambiente também é limpinho e organizado, o que passou muita confiança. Com certeza voltaria e recomendo demais!"}, {"texto": "Ótimo atendimento! Precisei retirar um piercing que inflamou, achei que morreria de dor e deu tudo certo, ele ainda explicou o tipo de jóia e material ideal, dá pra ver que é experiente no que faz, super recomendo! Pretendo ir mais vezes! ✨"}, {"texto": "Eu tava morrendo de medo de sentir dor como senti na primeira vez que furei em outro lugar. Além de não sentir praticamente nada, Rodrigo foi extremamente cuidado também com a limpeza e com meu nervosismo, praticando técnica de respiração em que fiquei bem de verdade. Recomendo muito mesmo! ⭐️⭐️⭐️⭐️⭐️"}, {"texto": "Rodrigo me atendeu em uma situação de última hora, conseguiu encaixar um horário rápido e retirou meu piercing que não conseguia tirar rapidamente e sem dor. Além de simpático e educado. Recomendo!"}, {"texto": "Rodrigo é exatamente profissional, do início ao fim foi tranquilo, obrigada pelo atendimento já indiquei e também adoraram! Obrigada 🙏🏼😊"}]}, /* autores não informados: exibidos como 'Cliente no Google' */
@@ -279,6 +288,8 @@ $('#lbP').onclick=()=>step(-1);$('#lbN').onclick=()=>step(1);$('#lbX').onclick=(
 lb.addEventListener('close',()=>opener&&opener.focus());
 lb.addEventListener('keydown',e=>{if(e.key==='ArrowLeft')step(-1);if(e.key==='ArrowRight')step(1)});
 lb.addEventListener('click',e=>{if(e.target===lb)lb.close()});
+/* tag do Google (ativa só se googleTagId estiver preenchido) */
+try{const gid=CONFIG.googleTagId;if(gid){const sc=document.createElement('script');sc.async=true;window.dataLayer=window.dataLayer||[];if(/^GTM-/.test(gid)){dataLayer.push({'gtm.start':Date.now(),event:'gtm.js'});sc.src='https://www.googletagmanager.com/gtm.js?id='+encodeURIComponent(gid)}else{window.gtag=function(){dataLayer.push(arguments)};gtag('js',new Date());gtag('config',gid);sc.src='https://www.googletagmanager.com/gtag/js?id='+encodeURIComponent(gid)}document.head.appendChild(sc)}}catch(e){}
 /* menu */
 const b=$('#burger'),m=$('#menu');
 b.onclick=()=>{const o=m.classList.toggle('open');b.setAttribute('aria-expanded',o)};
